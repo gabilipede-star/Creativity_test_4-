@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creativity Test</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            padding: 20px;
+            max-width: 210mm;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .info-bar {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .info-field {
+            flex: 1;
+        }
+        
+        .info-field label {
+            display: block;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-field input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-bottom: 2px solid #667eea;
+            font-size: 1.1em;
+            background: transparent;
+        }
+        
+        .intro {
+            background: #f5f7fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        
+        .intro h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .intro p {
+            margin-bottom: 12px;
+        }
+        
+        .intro ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .intro li {
+            margin-bottom: 8px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .section-number {
+            background: #667eea;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .section-title h3 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 3px;
+        }
+        
+        .section-title p {
+            color: #718096;
+            font-size: 0.95em;
+        }
+        
+        .prompt-box {
+            background: #fff;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 15px 0;
+        }
+        
+        .prompt-box h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+        
+        .options {
+            margin: 12px 0;
+        }
+        
+        .option {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-left: 3px solid #667eea;
+        }
+        
+        .thinking-points {
+            background: #fffef0;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 12px;
+            border: 1px solid #f0e68c;
+        }
+        
+        .thinking-points h5 {
+            color: #b8860b;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .thinking-points ul {
+            margin-left: 20px;
+        }
+        
+        .thinking-points li {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .response-area {
+            margin-top: 15px;
+        }
+        
+        .editable-response {
+            width: 100%;
+            min-height: 180px;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1em;
+            line-height: 1.6;
+            background: white;
+            cursor: text;
+        }
+        
+        .editable-response:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .editable-response:empty:before {
+            content: attr(data-placeholder);
+            color: #999;
+        }
+        
+        .editable-response p {
+            margin-bottom: 0.5em;
+        }
+        
+        .checklist {
+            background: #e6f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            page-break-inside: avoid;
+        }
+        
+        .checklist h4 {
+            color: #0050b3;
+            margin-bottom: 15px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .button-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .pdf-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .pdf-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        @media print {
+            .button-container {
+                display: none;
+            }
+            
+            body {
+                padding: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .editable-response {
+                border: 1px solid #ccc;
+                page-break-inside: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="pdf-button" onclick="window.print()">📄 Save as PDF</button>
+    </div>
+
+    <div class="header">
+        <h1>Creativity Test</h1>
+        <p>An Exploration of Imaginative Thinking and Storytelling</p>
+    </div>
+    
+    <div class="info-bar">
+        <div class="info-field">
+            <label>Name</label>
+            <input type="text" placeholder="Enter your name">
+        </div>
+        <div class="info-field">
+            <label>Date</label>
+            <input type="date">
+        </div>
+    </div>
+    
+    <div class="intro">
+        <h2>About This Test</h2>
+        <p>This test measures your creative thinking—your ability to imagine new causes and effects in narrative form. You will respond to four creative tasks, each designed to explore different dimensions of imaginative thought.</p>
+        <p><strong>Aim to make your responses:</strong></p>
+        <ul>
+            <li><strong>Original</strong> — venture beyond everyday scenarios</li>
+            <li><strong>Internally consistent</strong> — unusual is encouraged, but logic should hold within your story world</li>
+            <li><strong>Clearly articulated</strong> — express ideas in complete, well-structured sentences</li>
+        </ul>
+        <p>There are no "correct" answers. We're interested in how your imagination works and how effectively you can communicate novel ideas.</p>
+    </div>
+    
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">01</div>
+            <div class="section-title">
+                <h3>World-Building</h3>
+                <p>Reimagine the rules of reality</p>
+            </div>
+        </div>
+        
+        <div class="prompt-box">
+            <h4>Choose one scenario and write 5–7 sentences exploring what happens next:</h4>
+            <div class="options">
+                <div class="option">1. The moon begins to shine brightly during the day</div>
+                <div class="option">2. Time starts running backward for one hour every night</div>
+                <div class="option">3. People's dreams begin to appear on public screens where everyone can see them</div>
+            </div>
+            
+            <div class="thinking-points">
+                <h5>CONSIDER:</h5>
+                <ul>
+                    <li>What new problems or opportunities might emerge?</li>
+                    <li>How would daily life be transformed?</li>
+                    <li>What new social norms or customs might develop?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="response-area">
+            <div class="editable-response" contenteditable="true" data-placeholder="Write your response here..."></div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">02</div>
+            <div class="section-title">
+                <h3>Perspective-Shifting</h3>
+                <p>See the world through another's lens</p>
+            </div>
+        </div>
+        
+        <div class="prompt-box">
+            <h4>Imagine waking up tomorrow as someone you know well—your best friend, your teacher, or another person in your life.</h4>
+            <p style="margin-top: 12px;"><strong>Question:</strong> How would this person approach a problem you're currently facing? Write 5–7 sentences explaining their thinking and actions.</p>
+            
+            <div class="thinking-points">
+                <h5>EXAMPLE:</h5>
+                <ul>
+                    <li>"If I were my best friend, I would study in the library instead of my room because she believes that changing her environment helps her focus and prevents distractions."</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="response-area">
+            <div class="editable-response" contenteditable="true" data-placeholder="Write your response here..."></div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">03</div>
+            <div class="section-title">
+                <h3>Action-Generating</h3>
+                <p>Place a historical or fictional figure in modern Japan</p>
+            </div>
+        </div>
+        
+        <div class="prompt-box">
+            <h4>Choose one character and write 5–7 sentences describing what they try to do and what unexpected result occurs:</h4>
+            <div class="options">
+                <div class="option"><strong>Albert Einstein</strong> – Theoretical physicist who revolutionized our understanding of space and time</div>
+                <div class="option"><strong>Frankenstein's Creature</strong> – The intelligent but isolated being from Mary Shelley's classic novel</div>
+                <div class="option"><strong>Doraemon</strong> – The well-meaning robot cat from the future whose gadgets often backfire</div>
+                <div class="option"><strong>Oda Nobunaga</strong> – The ambitious daimyō who sought to unify Japan during the Sengoku period</div>
+                <div class="option"><strong>Miyamoto Musashi</strong> – Legendary swordsman and philosopher from feudal Japan</div>
+                <div class="option"><strong>Astro Boy (Tetsuwan Atom)</strong> – The compassionate robot hero with extraordinary abilities</div>
+            </div>
+            
+            <div class="thinking-points">
+                <h5>CONSIDER:</h5>
+                <ul>
+                    <li>What would this character attempt if they appeared in contemporary Japan?</li>
+                    <li>What aspects of modern life would surprise or confuse them?</li>
+                    <li>What unintended or ironic consequence might result from their actions?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="response-area">
+            <div class="editable-response" contenteditable="true" data-placeholder="Write your response here..."></div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">04</div>
+            <div class="section-title">
+                <h3>Reflection</h3>
+                <p>Analyze your creative process</p>
+            </div>
+        </div>
+        
+        <div class="prompt-box">
+            <h4>Review your three stories and answer these questions in 3–5 sentences each:</h4>
+            
+            <p style="margin: 15px 0;"><strong>1. Which story feels most original or creative to you?</strong></p>
+            <div class="response-area">
+                <div class="editable-response" contenteditable="true" data-placeholder="Your response..."></div>
+            </div>
+            
+            <p style="margin: 15px 0;"><strong>2. Why do you consider it original?</strong></p>
+            <div class="response-area">
+                <div class="editable-response" contenteditable="true" data-placeholder="Your response..."></div>
+            </div>
+            
+            <p style="margin: 15px 0;"><strong>3. What new cause-and-effect relationship did you explore in that story?</strong></p>
+            <div class="response-area">
+                <div class="editable-response" contenteditable="true" data-placeholder="Your response..."></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="checklist">
+        <h4>Before You Submit</h4>
+        <div class="checklist-item">
+            <input type="checkbox" id="check1">
+            <label for="check1">Your name appears at the top of the document</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="check2">
+            <label for="check2">All responses are written clearly and legibly</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="check3">
+            <label for="check3">You've used complete sentences with proper punctuation</label>
+        </div>
+        <div class="checklist-item">
+            <input type="checkbox" id="check4">
+            <label for="check4">All responses are in your own words</label>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Remember: There are no wrong answers—only different ways of imagining.
+    </div>
+</body>
+</html>
